@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638088533326442807
-    m_Hash: 1277280609
+      ticks: 638089327289211651
+    m_Hash: 541087136
   m_LockFileStatus:
     m_FilePath: C:/Users/smhuc/Desktop/Unity/Clicker/Clicker/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638088533326512785
-    m_Hash: 1358792426
+      ticks: 638089327289221671
+    m_Hash: 70587774
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -891,6 +891,7 @@ m_PackageAssets:
         - 3.0.15
         - 3.0.16
         - 3.0.17
+        - 3.0.18
         compatible:
         - 1.0.2
         - 1.0.6
@@ -925,7 +926,8 @@ m_PackageAssets:
         - 3.0.15
         - 3.0.16
         - 3.0.17
-        verified: 3.0.17
+        - 3.0.18
+        verified: 3.0.18
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.6

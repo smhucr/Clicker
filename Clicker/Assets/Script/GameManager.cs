@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,14 +33,21 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        endGame = false;
-        startGame = true;
-        startObject.SetActive(false);
-        timeObject.SetActive(false);
-        timerField.SetActive(false);
-        score.SetActive(true);
-        timer.SetActive(true);
-        restartObject.SetActive(true);
+        if (timeNumber != 0)
+        {
+            score.GetComponent<Text>().text = 0.ToString();
+            endGame = false;
+            startGame = true;
+            startObject.SetActive(false);
+            timeObject.SetActive(false);
+            timerField.SetActive(false);
+            score.SetActive(true);
+            timer.SetActive(true);
+        }
+        else
+        {
+            timerField.transform.DOShakeRotation(1, 40, 10, 60).OnComplete(() => timerField.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
     }
 
     public void BackToStart()
@@ -63,6 +71,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        restartObject.SetActive(true);
         endGame = true;
         startGame = false;
     }
