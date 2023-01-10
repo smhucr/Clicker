@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject score;
+    public GameObject highScore;
     public GameObject timer;
     [HideInInspector] public int timeNumber;
     public GameObject startObject;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
             startObject.SetActive(false);
             timeObject.SetActive(false);
             timerField.SetActive(false);
+            highScore.SetActive(false);
             score.SetActive(true);
             timer.SetActive(true);
         }
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     public void TimerValue(string text)
     {
-        timeNumber = int.Parse(text);
+            timeNumber = int.Parse(text);
     }
 
     public void GameOver()
@@ -71,9 +73,17 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        PlayerPrefs.SetInt("HighScore" + timeNumber.ToString(), int.Parse(score.GetComponent<Text>().text));
         restartObject.SetActive(true);
         endGame = true;
         startGame = false;
+    }
+
+    public void HighScoreDisplay()
+    {
+        if (!highScore.activeInHierarchy)
+            highScore.SetActive(true);
+        highScore.GetComponent<Text>().text = "High Score of " + timeNumber.ToString() + " s         " + PlayerPrefs.GetInt("HighScore" + timeNumber.ToString(), 0);
     }
 
 
